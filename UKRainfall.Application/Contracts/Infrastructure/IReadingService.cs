@@ -9,6 +9,6 @@ namespace UKRainfall.Application.Contracts.Infrastructure
 {
     public interface IReadingService
     {
-        Task<IEnumerable<Reading>> GetStationReadingsAsync(string stationId);
+        Task<IEnumerable<Reading>> GetStationReadingsAsync(string stationId, int count);
     }
 }

@@ -19,7 +19,7 @@ namespace UKRainfall.Application.Features.Readings
         {
             // get readings from the Rainfall API
 
-            var allReadings = await _readingService.GetStationReadingsAsync(request.StationId);            
+            var allReadings = await _readingService.GetStationReadingsAsync(request.StationId, request.Count);            
             return _mapper.Map<List<ReadingListVm>>(allReadings);                        
         }
     }

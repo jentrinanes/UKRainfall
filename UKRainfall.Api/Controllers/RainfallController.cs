@@ -15,10 +15,16 @@ namespace UKRainfall.Api.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get rainfall readings by station Id
+        /// </summary>
+        /// <param name="stationId">The id of the reading station</param>
+        /// <param name="count">The number of readings to return</param>        
+        /// <returns></returns>
         [HttpGet("id/{stationId}/readings", Name = "GetRainfall")]
-        public async Task<ActionResult<List<ReadingListVm>>> GetEventById(string stationId)
-        {
-            var getRainfallReadingQuery = new GetReadingsListQuery() { StationId = stationId };
+        public async Task<ActionResult<List<ReadingListVm>>> GetRainfallByStationId(string stationId, int count)
+        {                        
+            var getRainfallReadingQuery = new GetReadingsListQuery() { StationId = stationId, Count = count == 0 ? 10 : count };
             return Ok(await _mediator.Send(getRainfallReadingQuery));
         }
     }
