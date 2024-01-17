@@ -18,7 +18,7 @@ namespace UKRainfall.API.IntegrationTests.Controllers
         {
             var client = _factory.GetAnonymousClient();
 
-            var response = await client.GetAsync("/api/rainfall/id/289102TP/readings");
+            var response = await client.GetAsync("/api/rainfall/id/289102TP/readings/get-rainfall");
 
             response.EnsureSuccessStatusCode();
 
