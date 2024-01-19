@@ -1,4 +1,5 @@
-﻿using UKRainfall.Application;
+﻿using UKRainfall.Api.Midddleware;
+using UKRainfall.Application;
 using UKRainfall.Infrastructure;
 
 namespace UKRainfall.Api
@@ -26,6 +27,8 @@ namespace UKRainfall.Api
                 app.UseSwaggerUI();
             }
             
+            app.UseCustomExceptionHandler();
+
             app.UseHttpsRedirection();
             app.MapControllers();
 

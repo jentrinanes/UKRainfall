@@ -22,6 +22,8 @@ namespace UKRainfall.Api.Controllers
         /// <param name="count">The number of readings to return</param>        
         /// <returns></returns>
         [HttpGet("id/{stationId}/readings/get-rainfall", Name = "get-rainfall")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult<List<ReadingListVm>>> GetRainfallByStationId(string stationId, int count)
         {                        
             var getRainfallReadingQuery = new GetReadingsListQuery() { StationId = stationId, Count = count == 0 ? 10 : count };
