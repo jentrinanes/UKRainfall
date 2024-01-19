@@ -7,14 +7,7 @@ namespace UKRainfall.Infrastructure.Reading
     // This class is used to deserialize the JSON response from the Rainfall API
     
     public class ReadingService : IReadingService
-    {
-        public ILogger<ReadingService> _logger { get; }
-
-        public ReadingService(ILogger<ReadingService> logger)
-        {
-            _logger = logger;
-        }
-
+    {       
         public async Task<IEnumerable<Application.Models.Reading.Reading>> GetStationReadingsAsync(string stationId, int count)
         {
             try
@@ -39,8 +32,7 @@ namespace UKRainfall.Infrastructure.Reading
                 return readings;
             }
             catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error in GetStationReadingsAsync");
+            {                
                 throw;
             }                        
         }
